@@ -16,11 +16,11 @@
 // console.log(__dirname);
 // console.log(__filename)
 
-
-const numbers = [1,2,3,4];
-const ages = [31,24,17,19];
+const objects = {
+    key1: "key1",
+    key2: "key2",
+}
 
 module.exports = {
-    numbers,
-    ages
-}
+    objects,
+};
