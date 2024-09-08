@@ -20,6 +20,7 @@
 const numbers = [1,2,3,4];
 const ages = [31,24,17,19];
 
-globalThis.module.exports = {
+module.exports = {
     numbers,
+    ages
 }

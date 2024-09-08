@@ -1,4 +1,3 @@
 const num = require('./Index.js');
 
-console.log(num.numbers);
-    
+console.log(num.ages);
