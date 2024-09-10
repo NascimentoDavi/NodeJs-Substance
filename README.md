@@ -90,4 +90,30 @@ try {
   } catch (err) {
     console.error(err);
   }
+
+//
 ```
+
+## Server and Client
+### In order to create a server in NodeJS, we use the built-in module http.
+
+```javascript
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    console.log(req.url, req.method); // Get the URL and the method used in the request
+    res.setHeader('Content-Type', 'text/plain');
+    // res.setHeader('Content-Type', 'text/html')
+    // res.write('<p>Hello, World!</p>');
+    res.write("Hello, World");
+    res.end();
+});
+
+server.listen(3000, 'localhost', () => {
+    console.log('listening for requests on port 3000');
+})
+```
+
+## However, it is not good to keep the HTML code inside the js file. Becase of that, we are gonna create a separated html file.
+
+  
