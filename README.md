@@ -114,6 +114,48 @@ server.listen(3000, 'localhost', () => {
 })
 ```
 
-## However, it is not good to keep the HTML code inside the js file. Becase of that, we are gonna create a separated html file.
+## However, it is not good to keep the HTML code inside the js file. Because of that, we are gonna create a separated html file.
+### HTML code
+```html
+<!DOCTYPE html>
+<html lang="en">
 
-  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+</head>
+
+<body>
+    <h1>Page First Header</h1>
+    <h2>Page Second Header</h2>
+</body>
+</html>
+```
+
+```javascript
+const http = require('http');
+const fs = require('fs');
+
+const server = http.createServer((req, res) => {
+    console.log(req.url, req.method); // Get the URL and the method used in the request
+
+    // Set header content type
+    res.setHeader('Content-Type', 'text/html');
+    
+    // Send an HTML file
+    fs.readFile('./Views/index.html', (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.write(data);
+            res.end();
+        }
+    })
+
+});
+
+server.listen(3000, 'localhost', () => {
+    console.log('listening for requests on port 3000');
+})
+```
